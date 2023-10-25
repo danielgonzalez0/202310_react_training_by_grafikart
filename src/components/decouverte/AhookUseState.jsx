@@ -1,17 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Title from '../Title';
-import BackToHome from '../BackToHome'
+import BackToHome from '../BackToHome';
 
 const AhookUseState = () => {
-    return (
-      <>
-        <Title color={'red'} bgColor={'skyBlue'}>
-          {' '}
-          Découverte: le hook UseState
-        </Title>
-        <BackToHome />
-      </>
-    );
+  const [count, setCount] = useState(0);
+  const [person, setPerson] = useState({
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 18,
+  });
+
+  console.log('render');
+
+  const incrementCount = () => {
+    // c est la variable dans le contexte de la fonction parent => ici count
+    setCount((c) => c + 1);
+    //si je l'ajoute plusieurs fois => prendra en compte le count a jour
+    // setCount((c)=> c + 1)
+    // setCount((c)=> c + 1)
+  };
+
+  const incrementAge = () => {
+    setPerson({ ...person, age: person.age + 1 });
+  };
+
+  return (
+    <>
+      <Title color={'red'} bgColor={'skyBlue'}>
+        {' '}
+        Découverte: le hook UseState
+      </Title>
+      <BackToHome />
+
+      {/* partie cours Grafikart */}
+      <p>Compteur : {count}</p>
+      <button onClick={incrementCount}>Incrémenter le compteur</button>
+      <p>
+        Age de {person.firstName} : {person.age}
+      </p>
+      <button onClick={incrementAge}>Incrémenter l'âge</button>
+
+    </>
+  );
 };
 
 export default AhookUseState;

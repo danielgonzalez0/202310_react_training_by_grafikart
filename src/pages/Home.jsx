@@ -9,6 +9,8 @@ const Home = () => {
      { title: 'Présenter le JSX', path: '/' },
      { title: 'Créer des composants', path: '/' },
      { title: 'Le hook useState', path: '/hookUseState' },
+     { title: 'Les formulaires en React', path: '/formulaires' },
+     { title: 'Le flux de données en React', path: '/fluxdonnees' },
    ];
 
    return (
