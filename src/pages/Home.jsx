@@ -11,6 +11,7 @@ const Home = () => {
      { title: 'Le hook useState', path: '/hookUseState' },
      { title: 'Les formulaires en React', path: '/formulaires' },
      { title: 'Le flux de données en React', path: '/fluxdonnees' },
+     { title: 'TP React: Liste de produit', path: '/tplistedeproduits' },
    ];
 
    return (
