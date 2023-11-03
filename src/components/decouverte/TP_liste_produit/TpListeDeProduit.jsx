@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Title from '../../Title';
 import BackToHome from '../../BackToHome';
 import styled from 'styled-components';
 import Input from './forms/Input';
 import Checkbox from './forms/Checkbox';
+import ProductTable from './ProductTable';
 
 const PRODUCTS = [
   { category: 'Fruits', price: '$1', stocked: true, name: 'Apple' },
@@ -14,9 +15,25 @@ const PRODUCTS = [
   { category: 'Vegetables', price: '$1', stocked: true, name: 'Peas' },
 ];
 
-const SearchBar = styled.div``;
+const SearchBarContainer = styled.div`
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`;
 
 const TpListeDeProduit = () => {
+  const [showStockedOnly, setShowStockedOnly] = useState(false);
+  const [search, setSearch] = useState('');
+
+  const visibleProducts = PRODUCTS.filter((product) => {
+    if (showStockedOnly && !product.stocked) {
+      return false;
+    }
+    if(search && !product.name.includes(search)) {
+      return false
+    }
+    return true;
+  });
+
   return (
     <>
       <Title color={'red'} bgColor={'skyBlue'}>
@@ -25,11 +42,37 @@ const TpListeDeProduit = () => {
       </Title>
       <BackToHome />
 
-      <SearchBar>
-        <Input value="" onChange={() => null} placeholder={'Rechercher ...'} />
-        <Checkbox checked={false} onChange={()=>null} label={"N'afficher que les produits en stock"}/>
-      </SearchBar>
+      <SearchBar
+        search={search}
+        onSearchChange={setSearch}
+        showStockedOnly={showStockedOnly}
+        onStockedOnlyChange={setShowStockedOnly}
+      />
+      <ProductTable products={visibleProducts} />
     </>
+  );
+};
+
+const SearchBar = ({
+  showStockedOnly,
+  onStockedOnlyChange,
+  search,
+  onSearchChange,
+}) => {
+  return (
+    <SearchBarContainer>
+      <Input
+        value={search}
+        onChange={onSearchChange}
+        placeholder={'Rechercher ...'}
+      />
+      <Checkbox
+        id={'stocked'}
+        checked={showStockedOnly}
+        onChange={onStockedOnlyChange}
+        label={"N'afficher que les produits en stock"}
+      />
+    </SearchBarContainer>
   );
 };
 

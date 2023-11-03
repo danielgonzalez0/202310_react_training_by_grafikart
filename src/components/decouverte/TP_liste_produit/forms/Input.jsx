@@ -6,8 +6,10 @@ const Container = styled.div`
   .form-control {
     padding: 10px;
     border-radius: 10px;
-    border: solid 2px rgba(119, 104, 104, 0.829);
+    border: solid 2px #c9c9c9;
     min-width: 350px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 `;
 
