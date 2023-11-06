@@ -12,7 +12,10 @@ const Home = () => {
      { title: 'Les formulaires en React', path: '/formulaires' },
      { title: 'Le flux de données en React', path: '/fluxdonnees' },
      { title: 'TP React: Liste de produit', path: '/tplistedeproduits' },
+     { title: 'Le hook useEffect', path: '/hookUseEffect' },
+     { title: 'Le hook useMemo', path: '/hookUseMemo' },
    ];
+
 
    return (
      <>
