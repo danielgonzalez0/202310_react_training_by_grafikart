@@ -1,4 +1,4 @@
-import React, { useId } from 'react';
+import React, { forwardRef, useId } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -23,21 +23,22 @@ const Container = styled.div`
  * @param {(s: string)=>void} onChange
  * @returns {JSX.element}
  */
-const Input = ({ placeholder, value, onChange, label }) => {
+const Input = forwardRef(({ placeholder, value, onChange, label }, ref) => {
   const id = useId();
   return (
     <Container>
       <label className="form-label" htmlFor={id}>{label}</label>
       <input
         type="text"
+        ref={ref}
         id={id}
         className="form-control"
         value={value}
         placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange?.(e.target.value)}
       />
     </Container>
   );
-};
+});
 
 export default Input;

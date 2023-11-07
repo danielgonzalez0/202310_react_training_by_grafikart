@@ -6,6 +6,7 @@ import FluxDeDonnees from './components/decouverte/FluxDeDonnees';
 import TpListeDeProduit from './components/decouverte/TP_liste_produit/TpListeDeProduit';
 import HookUseEffect from './components/les bases/HookUseEffect';
 import HookUseMemo from './components/les bases/HookUseMemo';
+import HookUseRef from './components/les bases/HookUseRef';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/tplistedeproduits" element={<TpListeDeProduit />} />
         <Route path="/hookUseEffect" element={<HookUseEffect/>} />
         <Route path="/hookUseMemo" element={<HookUseMemo/>} />
+        <Route path="/hookUseRef" element={<HookUseRef/>} />
       </Routes>
     </BrowserRouter>
   );

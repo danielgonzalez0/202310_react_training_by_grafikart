@@ -14,6 +14,7 @@ const Home = () => {
      { title: 'TP React: Liste de produit', path: '/tplistedeproduits' },
      { title: 'Le hook useEffect', path: '/hookUseEffect' },
      { title: 'Le hook useMemo', path: '/hookUseMemo' },
+     { title: 'Le hook useRef', path: '/hookUseRef' },
    ];
 
 
