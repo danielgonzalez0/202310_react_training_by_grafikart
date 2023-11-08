@@ -15,6 +15,7 @@ const Home = () => {
      { title: 'Le hook useEffect', path: '/hookUseEffect' },
      { title: 'Le hook useMemo', path: '/hookUseMemo' },
      { title: 'Le hook useRef', path: '/hookUseRef' },
+     { title: 'Créer un hook personnalisé', path: '/hookPerso' },
    ];
 
 

@@ -7,6 +7,7 @@ import TpListeDeProduit from './components/decouverte/TP_liste_produit/TpListeDe
 import HookUseEffect from './components/les bases/HookUseEffect';
 import HookUseMemo from './components/les bases/HookUseMemo';
 import HookUseRef from './components/les bases/HookUseRef';
+import HookPerso from './components/les bases/HookPerso';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/hookUseEffect" element={<HookUseEffect/>} />
         <Route path="/hookUseMemo" element={<HookUseMemo/>} />
         <Route path="/hookUseRef" element={<HookUseRef/>} />
+        <Route path="/hookPerso" element={<HookPerso/>} />
       </Routes>
     </BrowserRouter>
   );
