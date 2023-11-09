@@ -6,6 +6,7 @@ import { useIncrement } from '../../hooks/useIncrement';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import Input from '../decouverte/TP_liste_produit/forms/Input';
 import { useFetch } from '../../hooks/useFetch';
+import { Link } from 'react-router-dom';
 
 const HookPerso = () => {
   const [checked, toggleCheck] = useToggle(false);
@@ -36,10 +37,23 @@ const HookPerso = () => {
       </div>
       <Input value={name} onChange={setName} label="Nom" />
       <div>
-        {loading && <div>Chargement...</div>}
-        {data && <div>
-            {JSON.stringify(data)}
-            </div>}
+        {loading && (
+          <div className='spinner-border' role='status'>
+            <span className='visually-hidden'>Chargement...</span>
+          </div>
+        )}
+        {errors && (
+          <div className="alert alert-danger">{errors.toString()}</div>
+        )}
+        {data && (
+          <div>
+            <ul>
+              {data.map((post) => (
+                <li key={post.id}>{post.title}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </>
   );
