@@ -11,6 +11,7 @@ const Container = styled.tr``
 const ProductRow = ({product}) => {
 
     const style = product.stocked ? undefined : {color: 'red'}
+    throw new Error ('test')
     return (
         <Container>
             <td style={style}>{product.name}</td>

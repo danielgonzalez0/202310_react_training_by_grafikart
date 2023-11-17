@@ -6,7 +6,6 @@ import { useIncrement } from '../../hooks/useIncrement';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import Input from '../decouverte/TP_liste_produit/forms/Input';
 import { useFetch } from '../../hooks/useFetch';
-import { Link } from 'react-router-dom';
 
 const HookPerso = () => {
   const [checked, toggleCheck] = useToggle(false);

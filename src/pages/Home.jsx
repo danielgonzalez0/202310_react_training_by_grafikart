@@ -16,6 +16,8 @@ const Home = () => {
      { title: 'Le hook useMemo', path: '/hookUseMemo' },
      { title: 'Le hook useRef', path: '/hookUseRef' },
      { title: 'Créer un hook personnalisé', path: '/hookPerso' },
+     { title: 'Mémoisation et useCallback', path: '/hookUseCallback' },
+     { title: 'Les portails dans React', path: '/createPortal' },
    ];
 
 

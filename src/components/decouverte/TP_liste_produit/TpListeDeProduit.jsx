@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Input from './forms/Input';
 import Checkbox from './forms/Checkbox';
 import ProductTable from './ProductTable';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const PRODUCTS = [
   { category: 'Fruits', price: '$1', stocked: true, name: 'Apple' },
@@ -28,8 +29,8 @@ const TpListeDeProduit = () => {
     if (showStockedOnly && !product.stocked) {
       return false;
     }
-    if(search && !product.name.includes(search)) {
-      return false
+    if (search && !product.name.includes(search)) {
+      return false;
     }
     return true;
   });
@@ -48,10 +49,24 @@ const TpListeDeProduit = () => {
         showStockedOnly={showStockedOnly}
         onStockedOnlyChange={setShowStockedOnly}
       />
-      <ProductTable products={visibleProducts} />
+      <ErrorBoundary
+        FallbackComponent={AlertError}
+        onReset={()=>console.log('reset')}
+      >
+        <ProductTable products={visibleProducts} />
+      </ErrorBoundary>
     </>
   );
 };
+
+function AlertError ({error, resetErrorBoundary}) {
+  return (
+    <div className="alert alert-danger">
+      {error.toString()}
+      <button className='btn btn-secondary' onClick={resetErrorBoundary}>Reset</button>
+    </div>
+  )
+}
 
 const SearchBar = ({
   showStockedOnly,

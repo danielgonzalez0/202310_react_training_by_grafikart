@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const style = {
@@ -6,12 +6,12 @@ const style = {
   margin: '10px 0',
 };
 
-const BackToHome = () => {
+const BackToHome = memo(function BackLink() {
   return (
     <NavLink to={'/'} style={style}>
       retour page principal
     </NavLink>
   );
-};
+});
 
 export default BackToHome;
