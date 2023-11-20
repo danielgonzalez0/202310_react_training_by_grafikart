@@ -16,7 +16,7 @@ const HookPerso = () => {
   });
   const [name, setName] = useState('');
   useDocumentTitle(name ? `Editer ${name}` : null);
-  const {loading, data, errors} = useFetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_delay=2000')
+  const {loading, data, error} = useFetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_delay=2000')
 
   return (
     <>
@@ -41,8 +41,8 @@ const HookPerso = () => {
             <span className='visually-hidden'>Chargement...</span>
           </div>
         )}
-        {errors && (
-          <div className="alert alert-danger">{errors.toString()}</div>
+        {error && (
+          <div className="alert alert-danger">{error.toString()}</div>
         )}
         {data && (
           <div>

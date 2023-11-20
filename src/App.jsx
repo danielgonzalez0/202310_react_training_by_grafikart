@@ -10,6 +10,7 @@ import HookUseRef from './components/les bases/HookUseRef';
 import HookPerso from './components/les bases/HookPerso';
 import Memoisation_and_useCallBack from './components/les bases/Memoisation_and_useCallBack';
 import CreatePortal from './components/les bases/CreatePortal';
+import Blog_app from './components/TP_blog/Blog_app';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/hookPerso" element={<HookPerso />} />
         <Route path="/hookUseCallback" element={<Memoisation_and_useCallBack />} />
         <Route path="/createPortal" element={<CreatePortal />} />
+        <Route path="/blog" element={<Blog_app />} />
       </Routes>
     </BrowserRouter>
   );

@@ -18,6 +18,7 @@ const Home = () => {
      { title: 'Créer un hook personnalisé', path: '/hookPerso' },
      { title: 'Mémoisation et useCallback', path: '/hookUseCallback' },
      { title: 'Les portails dans React', path: '/createPortal' },
+     { title: 'TP: Blog avec react', path: '/blog' },
    ];
 
 
