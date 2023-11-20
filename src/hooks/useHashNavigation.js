@@ -5,10 +5,11 @@ import { useEffect, useState } from 'react';
  *
  * @returns {Object} Un objet contenant l'état actuel de la page en fonction du fragment d'URL.
  * @property {string} page - La page actuelle basée sur le fragment d'URL.
+ * @property {string} param - Le paramètre associé à la page (s'il y en a un).
  *
  * @example
  * // Dans votre composant React
- * const { page } = useHashNavigation();
+ * const { page, param } = useHashNavigation();
  */
 export function useHashNavigation() {
   const [page, setPage] = useState(location.hash);
@@ -30,5 +31,11 @@ export function useHashNavigation() {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
-  return { page: page.replace('#', '').toLowerCase() || 'home' };
+
+  const cleanedHash = page.replaceAll('#', '').toLowerCase();
+
+  return {
+    page: cleanedHash ? cleanedHash.split(':')[0] : 'home',
+    param: cleanedHash.split(':')[1],
+  };
 }
