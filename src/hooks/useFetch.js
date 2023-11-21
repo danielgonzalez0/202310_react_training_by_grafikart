@@ -27,5 +27,5 @@ export function useFetch(url, options) {
       .finally(() => setLoading(false));
   }, [url]);
 
-  return { loading, data, error };
+  return { loading, data, error, setData };
 }

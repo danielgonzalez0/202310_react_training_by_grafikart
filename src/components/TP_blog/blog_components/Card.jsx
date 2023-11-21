@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 /**
  * Composant de carte réutilisable pour afficher des informations structurées.
@@ -20,9 +21,9 @@ const Card = ({ image, title, description, href, buttonLabel }) => {
         {title && <h5 className="card-title">{title}</h5>}
         {description && <p className="card-text">{description}</p>}
         {showButton && (
-          <a href={href} className="btn btn-primary">
+          <Button variant="primary" href={href}>
             {buttonLabel}
-          </a>
+          </Button>
         )}
       </div>
     </div>

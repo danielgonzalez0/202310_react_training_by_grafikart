@@ -1,10 +1,12 @@
 import React from 'react';
 import { useHashNavigation } from '../../hooks/useHashNavigation';
 import BlogHome from './blog_pages/BlogHome';
-import BlogSingle from './blog_pages/BlogSingle';
+import BlogSingle from './blog_pages/single/BlogSingle';
 import BlogContact from './blog_pages/BlogContact';
 import BlogNotFound from './blog_pages/BlogNotFound';
 import Header from './blog_components/Header';
+import { ErrorBoundary } from 'react-error-boundary';
+import Alert from './blog_components/Alert';
 
 /**
  * Récupère le contenu de la page en fonction du nom de la page.
@@ -20,6 +22,10 @@ function getPageContent(page, param) {
   return <BlogNotFound page={page} />;
 }
 
+function PageError({ error }) {
+  return <Alert type="danger">{error.toString()}</Alert>;
+}
+
 const Blog_app = () => {
   const { page, param } = useHashNavigation();
   const pageContent = getPageContent(page, param);
@@ -27,7 +33,11 @@ const Blog_app = () => {
   return (
     <>
       <Header page={page} />
-      <div className="container my-3">{pageContent}</div>
+      <div className="container my-3">
+        <ErrorBoundary FallbackComponent={PageError}>
+          {pageContent}
+        </ErrorBoundary>
+      </div>
     </>
   );
 };
